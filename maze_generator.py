@@ -1,11 +1,5 @@
 import random
-
-def User_Input():
-    num = int(input("Enter the Size of the Maze you Want to Generate: "))
-    return num
-
-maze_size = User_Input()
-
+maze_size = int(input('How Big do You want your NxN Maze to be? I would Suggest Enter a Number between 1 to 15 for best Experience: '))
 def insert_walls(maze_size, maze):
     # Inserting Walls by choosing random column number in each row one by one
     for _ in range(maze_size):

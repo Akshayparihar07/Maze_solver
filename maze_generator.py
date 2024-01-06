@@ -1,4 +1,3 @@
-# maze_generator.py
 
 import random
 

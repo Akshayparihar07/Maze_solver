@@ -1,4 +1,3 @@
-# main.py
 
 import maze_generator
 import path_finder

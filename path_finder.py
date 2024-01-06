@@ -1,4 +1,3 @@
-# path_finder.py
 
 def find_path(matrix):
     n = len(matrix)

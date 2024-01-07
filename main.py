@@ -22,7 +22,7 @@ if __name__ == "__main__":
             print('\nWait! Generating Path ⌛')
             time.sleep(3)
 
-            path = path_finder.find_path(maze)
+            path = path_finder.find_path(maze, 0, 0)
 
             if path:
                 print('\nFound Path:')

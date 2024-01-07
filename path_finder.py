@@ -1,30 +1,39 @@
-
-def find_path(matrix):
-    n = len(matrix)
-
-    def is_valid(x, y):
-        return 0 <= x < n and 0 <= y < n and matrix[x][y] == " 🔵  |"
-
-    def dfs(x, y):
-        if not is_valid(x, y):
+def find_path(matrix, r, c):
+    def is_valid(matrix, r, c):
+        def is_valid(matrix, r, c):
+            n = len(matrix)
+            if 0 <= r < n and 0 <= c < n and matrix[r][c] == ' 🔵 |':
+                return True
             return False
 
-        matrix[x][y] = " 🟢  |"  # Mark the current cell as part of the path
 
-        if (x, y) == (n - 1, n - 1):  # Reached the destination
-            return True
+    def backtrack(matrix, r, c):
+        n = len(matrix)
+        if r == n-1 and c == n-1:
+            return matrix
 
-        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        for dx, dy in directions:
-            new_x, new_y = x + dx, y + dy
-            if is_valid(new_x, new_y) and matrix[new_x][new_y] != " 🟢  |":
-                if dfs(new_x, new_y):
-                    return True
+        # Down -> (r+1, c)
+        if is_valid(matrix, r+1, c):
+            matrix[r+1][c] = ' 🟢 |'
+            if backtrack(matrix, r+1, c):
+                return matrix
 
-        matrix[x][y] = " 🔵  |"  # Unmark the current cell if no valid path found
-        return False
+        # Left -> (r, c-1)
+        elif is_valid(matrix, r, c-1):
+            matrix[r][c-1] = ' 🟢 |'
+            if backtrack(matrix, r, c-1):
+                return matrix
 
-    if dfs(0, 0):
-        return matrix
-    else:
-        return None
+        # Right -> (r, c+1)
+        elif is_valid(matrix, r, c+1):
+            matrix[r][c+1] = ' 🟢 |'
+            if backtrack(matrix, r, c+1):
+                return matrix
+
+        # Up -> (r-1, c)
+        elif is_valid(matrix, r-1, c):
+            matrix[r-1][c] = ' 🟢 |'
+            if backtrack(matrix, r-1, c):
+                return matrix
+
+    return backtrack(matrix, r, c)

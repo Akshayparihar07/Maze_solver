@@ -46,7 +46,7 @@ This project consists of a Python script that generates a random maze and attemp
 
 ## Project Structure
 
-- `maze.py`: The main Python script containing maze generation and pathfinding functions.
+- `Maze_solver.py`: The main Python script containing maze generation and pathfinding functions.
 - `README.md`: Documentation file providing information about the project.
 - (Other files as needed)
 

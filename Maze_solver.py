@@ -11,11 +11,10 @@ def generate_maze(n, wall_percentage):
     maze = [[OPEN]*n for _ in range(n)]
     num_walls = int(n*n*wall_percentage/100)
     for _ in range(num_walls):
-            i, j = random.randint(0, n-1), random.randint(0, n-1)
-            if (i==0 and j==0) or (i==n-1 and j==n-1): 
-                continue
-            else: 
-                maze[i][j] = WALL 
+        i, j = random.randint(0, n-1), random.randint(0, n-1)
+        if (i==0 and j==0): continue
+        else: 
+            maze[i][j] = WALL 
     return maze
 
 def print_maze(maze, n):
@@ -42,7 +41,7 @@ def find_path(i, j, n, maze):
         elif j-1 >= 0 and find_path(i, j-1, n, maze):
             return True
         maze[i][j] = OPEN
-    return False
+        return False
 
 def print_path(path,n):
     for i in range(n):

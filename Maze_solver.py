@@ -57,7 +57,7 @@ def main():
     if wall_percentage > 25: wall_percentage = 25
     maze = generate_maze(n, wall_percentage)
     print_maze(maze, n)
-    keypress = input('\nPRESS ENTER TO GENERATE MAZE')
+    keypress = input('\nPRESS ENTER TO FIND PATH')
     if keypress == '':
         if find_path(0, 0, n, maze):
             print("\nWAIT, FINDING PATH....")
